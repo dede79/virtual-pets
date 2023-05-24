@@ -1,4 +1,4 @@
-const Pet = require('../src/Pet');
+const Pet = require('../src/pet');
 
 describe('Pet', () => {
     it('sets the name property', () => {
@@ -121,4 +121,15 @@ describe('checkup', function (){
     });
 })
 
+describe('haveBaby', function (){
+    it( 'parent Pet adds a new child', () => {
+        const parent = new Pet('Rosie');
+        parent.haveBaby("Billy");
+
+        const children = parent.children;
+
+        expect(Array.isArray(children)).toBe(true);
+        expect(parent.children[0].name).toBe('Billy');
+    });
+});
 
